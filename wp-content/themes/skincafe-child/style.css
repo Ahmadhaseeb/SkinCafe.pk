@@ -1,0 +1,37 @@
+/*
+Theme Name: SkinCafe Child
+Theme URI: https://skincafe.pk
+Author: Antigravity
+Author URI: https://skincafe.pk
+Description: Custom Astra child theme for SkinCafe.pk, featuring custom brand variables and overrides for the modern Organic Skincare aesthetic.
+Template: astra
+Version: 1.0.0
+Text Domain: skincafe-child
+*/
+
+:root {
+    --skincafe-soft-pink: #FAD4D4;
+    --skincafe-cream: #FFF5E1;
+    --skincafe-rich-brown: #5C4033;
+    --skincafe-text: #333333;
+}
+
+body, .ast-builder-layout-element {
+    color: var(--skincafe-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--skincafe-rich-brown);
+}
+
+.ast-button, .button, input[type="submit"] {
+    background-color: var(--skincafe-rich-brown) !important;
+    color: var(--skincafe-cream) !important;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.ast-button:hover, .button:hover, input[type="submit"]:hover {
+    background-color: var(--skincafe-soft-pink) !important;
+    color: var(--skincafe-rich-brown) !important;
+}
