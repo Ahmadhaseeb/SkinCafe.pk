@@ -35,3 +35,49 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--skincafe-soft-pink) !important;
     color: var(--skincafe-rich-brown) !important;
 }
+
+/* WooCommerce Header Search Bar Styling */
+.skincafe-header-search-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.skincafe-header-search-container .woocommerce-product-search {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.skincafe-header-search-container input[type="search"] {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid var(--skincafe-soft-pink);
+    border-radius: 25px;
+    outline: none;
+    background-color: var(--skincafe-cream);
+    color: var(--skincafe-rich-brown);
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+}
+
+.skincafe-header-search-container input[type="search"]:focus {
+    box-shadow: 0 0 8px rgba(250, 212, 212, 0.8);
+    border-color: var(--skincafe-rich-brown);
+}
+
+.skincafe-header-search-container button[type="submit"] {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--skincafe-rich-brown) !important;
+    color: var(--skincafe-cream) !important;
+    border-radius: 20px;
+    padding: 8px 20px;
+    border: none;
+    cursor: pointer;
+}
