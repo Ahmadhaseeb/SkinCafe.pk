@@ -42,3 +42,26 @@ add_shortcode('skincafe_product_search', function() {
     get_product_search_form();
     return '<div class="skincafe-header-search-container">' . ob_get_clean() . '</div>';
 });
+
+/**
+ * Register Gutenberg Block Pattern for the SkinCafe Premium Hero Section
+ */
+function skincafe_register_block_pattern() {
+    register_block_pattern(
+        'skincafe/hero-banner',
+        array(
+            'title'       => __( 'SkinCafe Hero Banner', 'skincafe-child' ),
+            'description' => _x( 'A premium glassmorphism hero banner for the homepage.', 'Block pattern description', 'skincafe-child' ),
+            'content'     => '<!-- wp:html -->
+<div class="skincafe-hero-banner">
+    <div class="skincafe-hero-content">
+        <h1>Organic Care for Glowing Skin</h1>
+        <p>Discover our curated selection of premium, natural skincare essentials designed to bring out your inner radiance.</p>
+        <a href="/shop/" class="button">Shop Now</a>
+    </div>
+</div>
+<!-- /wp:html -->',
+        )
+    );
+}
+add_action( 'init', 'skincafe_register_block_pattern' );

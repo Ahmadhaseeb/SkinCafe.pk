@@ -81,3 +81,105 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     cursor: pointer;
 }
+
+/* ==================================================
+   PHASE 3: PREMIUM HOMEPAGE STYLING & MOBILE-FIRST
+   ================================================== */
+
+/* Hero Banner Gradient & Glassmorphism */
+.skincafe-hero-banner {
+    position: relative;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--skincafe-cream) 0%, var(--skincafe-soft-pink) 100%);
+    text-align: center;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.skincafe-hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 60px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(92, 64, 51, 0.1);
+}
+
+.skincafe-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--skincafe-rich-brown);
+}
+
+.skincafe-hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--skincafe-text);
+}
+
+/* Product Cards Glassmorphism Hover */
+ul.products li.product {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+}
+
+ul.products li.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(250, 212, 212, 0.6); /* Soft pink shadow */
+}
+
+/* Mobile-First: Force 2-Column Product Grid on Mobile Phones */
+@media (max-width: 768px) {
+    /* Compress Hero */
+    .skincafe-hero-content {
+        padding: 40px 20px;
+    }
+    .skincafe-hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* 2 Column WooCommerce Grid */
+    .woocommerce ul.products[class*=columns-] li.product, 
+    .woocommerce-page ul.products[class*=columns-] li.product {
+        width: 48% !important;
+        float: left !important;
+        clear: none !important;
+        margin: 0 0 20px 0 !important;
+    }
+
+    .woocommerce ul.products[class*=columns-] li.product:nth-child(2n) {
+        float: right !important;
+    }
+    
+    .woocommerce ul.products[class*=columns-] li.product:nth-child(2n+1) {
+        clear: both !important;
+    }
+
+    /* Small Adjustments for 2-column mobile readability */
+    ul.products li.product .woocommerce-loop-product__title {
+        font-size: 0.95rem !important;
+        padding: 0 10px;
+    }
+    ul.products li.product .price {
+        font-size: 0.9rem !important;
+        padding: 0 10px;
+    }
+    .woocommerce ul.products li.product .button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        margin: 0 10px 10px;
+        width: calc(100% - 20px);
+    }
+}
