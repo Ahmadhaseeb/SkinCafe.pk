@@ -36,14 +36,14 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--skincafe-rich-brown) !important;
 }
 
-/* WooCommerce Header Search Bar Styling */
+/* WooCommerce Header Search Bar Styling (Inline with Logo) */
 .skincafe-header-search-container {
     width: 100%;
-    max-width: 500px;
-    margin: 10px auto;
-    padding: 0 15px;
-    display: flex;
-    justify-content: center;
+    max-width: 350px;
+    margin: 0 0 0 30px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
 }
 
 .skincafe-header-search-container .woocommerce-product-search {

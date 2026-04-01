@@ -33,8 +33,8 @@ function skincafe_add_header_product_search() {
         echo '</div>';
     }
 }
-// Hook into Astra's top header to ensure it displays prominently
-add_action('astra_masthead_top', 'skincafe_add_header_product_search');
+// Hook specifically right after the logo (Site Identity) in the Astra Header
+add_action('astra_site_identity_bottom', 'skincafe_add_header_product_search');
 
 // Also provide a shortcode just in case they prefer to use Astra's drag-and-drop Header Builder widget
 add_shortcode('skincafe_product_search', function() {
