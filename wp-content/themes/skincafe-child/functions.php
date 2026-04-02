@@ -24,17 +24,31 @@ function skincafe_child_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'skincafe_child_enqueue_styles', 15 );
 
 /**
- * Add Product Search Bar to Astra Header
+ * Add Product Search Bar to Astra Header (Bypassing Header Builder Restrictions)
  */
-function skincafe_add_header_product_search() {
+function skincafe_inject_header_search() {
     if ( class_exists( 'WooCommerce' ) ) {
+        // Output the search form hidden at the bottom of the page
+        echo '<div id="skincafe-hidden-search" style="display:none;">';
         echo '<div class="skincafe-header-search-container">';
         get_product_search_form();
         echo '</div>';
+        echo '</div>';
+        
+        // Use JavaScript to grab it and place it cleanly next to the Logo
+        echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var logoContainer = document.querySelector(".site-branding") || document.querySelector(".ast-site-identity");
+            var searchHtml = document.getElementById("skincafe-hidden-search").innerHTML;
+            if (logoContainer) {
+                logoContainer.insertAdjacentHTML("afterend", searchHtml);
+            }
+        });
+        </script>';
     }
 }
-// Hook specifically right after the logo (Site Identity) in the Astra Header
-add_action('astra_site_identity_bottom', 'skincafe_add_header_product_search');
+// Hook into footer to ensure the DOM is loaded, guaranteeing placement!
+add_action('wp_footer', 'skincafe_inject_header_search', 20);
 
 // Also provide a shortcode just in case they prefer to use Astra's drag-and-drop Header Builder widget
 add_shortcode('skincafe_product_search', function() {
